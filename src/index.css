@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-on-background font-sans;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.material-symbols-outlined.fill,
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Heatmap & Scanning Overlays */
+.heatmap-overlay {
+  background: radial-gradient(circle at 75% 25%, rgba(255, 0, 0, 0.45) 0%, rgba(255, 0, 0, 0) 40%),
+              radial-gradient(circle at 20% 80%, rgba(255, 165, 0, 0.35) 0%, rgba(255, 165, 0, 0) 30%);
+  mix-blend-mode: multiply;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(340px); opacity: 0.9; }
+  100% { transform: translateY(0); opacity: 0.8; }
+}
+
+.animate-scan {
+  animation: scan 3s ease-in-out infinite;
+}
+
+@keyframes face-scan {
+  0% { top: 10%; opacity: 0; }
+  15% { opacity: 0.8; }
+  85% { opacity: 0.8; }
+  100% { top: 90%; opacity: 0; }
+}
+
+.animate-face-scan {
+  animation: face-scan 2.2s ease-in-out infinite;
+}
+
+/* Custom baseline subtle grid */
+.grid-bg {
+  background-image: linear-gradient(to right, rgba(0, 33, 71, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 33, 71, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Clean Room Grid Baseline */
+.cleanroom-bg {
+  background-image: linear-gradient(to right, #eaf1ff 1px, transparent 1px),
+                    linear-gradient(to bottom, #eaf1ff 1px, transparent 1px);
+  background-size: 8px 8px;
+}
